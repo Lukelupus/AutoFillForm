@@ -97,16 +97,19 @@ document.addEventListener("DOMContentLoaded", () => {
       switch (fieldName) {
         case "E-mail":
           if (!Validator.validateEmail(fieldValue)) {
+            field.classList.add("error");
             errors.push("Please enter a valid email.");
           }
           break;
         case "Número do Cartão":
           if (!Validator.validateCardNumber(fieldValue)) {
+            field.classList.add("error");
             errors.push("Please enter a valid credit card number.");
           }
           break;
         case "Data de Validade":
           if (!Validator.validateExpiryDate(fieldValue)) {
+            field.classList.add("error");
             errors.push("Please enter a valid expiry date (MM/YY).");
           }
           break;
@@ -119,6 +122,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (errors.length > 0) {
     const errorMessage = errors.join(" ");
     alert(errorMessage);
+    console.log(errorMessage);
   } else {
     console.log("Form filled successfully!");
   }
